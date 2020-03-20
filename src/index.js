@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-function Root() {
-  return <h1>To Do</h1>;
-}
+import App from "./App";
 
-ReactDom.render(<Root />, document.getElementById("root"));
+ReactDom.render(<App />, document.getElementById("root"));
