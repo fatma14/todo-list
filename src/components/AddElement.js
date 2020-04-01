@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-// import "./addElement.css";
+import CreateToDo from "./CreateToDo";
+
 const ACTIVE_STATE = "ACTIVE";
 const COMPLETED_STATE = "COMPLETED";
 const ALL_STATE = "ALL";
@@ -14,8 +15,7 @@ export default class AddElements extends Component {
         isDone: false
       },
       toDoArray: [],
-      filterMode: "ALL",
-      isSubmitted: false
+      filterMode: "ALL"
     };
   }
 
@@ -79,24 +79,12 @@ export default class AddElements extends Component {
   render() {
     return (
       <div>
-        <form
-          onSubmit={event => {
-            this.handleSubmit(event);
-          }}
-        >
-          <label>
-            What needs to be done?
-            <input
-              type="text"
-              value={this.state.toDo.toDoPhrase}
-              onChange={event => {
-                this.handleChange(event);
-              }}
-              placeholder="Add your todo here"
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <CreateToDo
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          toDo={this.state.toDo}
+        />
+
         <form>
           {this.state.toDoArray
             .filter(toDo => {
