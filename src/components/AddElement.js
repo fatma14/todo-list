@@ -14,7 +14,8 @@ export default class AddElements extends Component {
         isDone: false
       },
       toDoArray: [],
-      filterMode: "ALL"
+      filterMode: "ALL",
+      isSubmitted: false
     };
   }
 
@@ -26,6 +27,7 @@ export default class AddElements extends Component {
       }
     });
   }
+
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
@@ -129,37 +131,46 @@ export default class AddElements extends Component {
             ))}
         </form>
         <div>
-          {this.state.toDoArray.filter(toDo => toDo.isDone === false).length}
-          items left
+          {this.state.toDoArray.length > 0 && (
+            <div>
+              <div>
+                {
+                  this.state.toDoArray.filter(toDo => toDo.isDone === false)
+                    .length
+                }
+                items left
+              </div>
+              <button
+                onClick={() => {
+                  this.showActiveElements();
+                }}
+              >
+                Active
+              </button>
+              <button
+                onClick={() => {
+                  this.showCompletedElements();
+                }}
+              >
+                Completed
+              </button>
+              <button
+                onClick={() => {
+                  this.showAllElements();
+                }}
+              >
+                All
+              </button>
+              <button
+                onClick={() => {
+                  this.removeCompletedTasks();
+                }}
+              >
+                Clear completed tasks
+              </button>
+            </div>
+          )}
         </div>
-        <button
-          onClick={() => {
-            this.showActiveElements();
-          }}
-        >
-          Active
-        </button>
-        <button
-          onClick={() => {
-            this.showCompletedElements();
-          }}
-        >
-          Completed
-        </button>
-        <button
-          onClick={() => {
-            this.showAllElements();
-          }}
-        >
-          All
-        </button>
-        <button
-          onClick={() => {
-            this.removeCompletedTasks();
-          }}
-        >
-          Clear completed tasks
-        </button>
       </div>
     );
   }
