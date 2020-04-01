@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function ShowElement(props) {
+export default function TodoList(props) {
   return (
     <div>
       <form>
-        {props.toDoArray.map((toDo, index) => (
+        {props.toDos.map((toDo, index) => (
           <div className="task-todo" key={index}>
             <label
               style={{

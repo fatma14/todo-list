@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import CreateToDo from "./CreateToDo";
+import TodoList from "./TodoList";
 
 const ACTIVE_STATE = "ACTIVE";
 const COMPLETED_STATE = "COMPLETED";
@@ -77,15 +78,27 @@ export default class AddElements extends Component {
   }
 
   render() {
+    const filteredTodo = this.state.toDoArray.filter(toDo => {
+      if (this.state.filterMode === ACTIVE_STATE) {
+        return toDo.isDone === false;
+      } else if (this.state.filterMode === COMPLETED_STATE) {
+        return toDo.isDone === true;
+      } else {
+        return true;
+      }
+    });
     return (
       <div>
         <CreateToDo
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
+          handleSubmit={(...arg) => this.handleSubmit(...arg)}
+          handleChange={(...arg) => this.handleChange(...arg)}
           toDo={this.state.toDo}
         />
-
-        <form>
+        <TodoList
+          toDos={filteredTodo}
+          handleCheckBoxChange={(...arg) => this.handleCheckBoxChange(...arg)}
+        />
+        {/* <form>
           {this.state.toDoArray
             .filter(toDo => {
               if (this.state.filterMode === ACTIVE_STATE) {
@@ -117,7 +130,7 @@ export default class AddElements extends Component {
                 </label>
               </div>
             ))}
-        </form>
+        </form> */}
         <div>
           {this.state.toDoArray.length > 0 && (
             <div>
