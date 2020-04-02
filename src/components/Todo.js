@@ -3,7 +3,7 @@ import React from "react";
 export default function Todo(props) {
   return (
     <div>
-      <label
+      <div
         style={{
           textDecoration: props.toDo.isDone && "line-through"
         }}
@@ -15,7 +15,7 @@ export default function Todo(props) {
           checked={props.toDo.isDone}
           onChange={props.handleCheckBoxChange}
         />
-      </label>
+      </div>
     </div>
   );
 }

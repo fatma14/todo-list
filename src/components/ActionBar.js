@@ -1,14 +1,17 @@
 import React from "react";
 
 export default function ActionBar(props) {
+  let activeItemsNumber = props.toDoArray.filter(toDo => toDo.isDone === false)
+    .length;
   return (
     <div>
       {props.toDoArray.length > 0 && (
         <div>
-          <div>
-            {props.toDoArray.filter(toDo => toDo.isDone === false).length}
-            items left
-          </div>
+          {activeItemsNumber === 1 ? (
+            <div>1 item left</div>
+          ) : (
+            <div> {activeItemsNumber} items left </div>
+          )}
           <button
             onClick={() => {
               props.showActiveElements();

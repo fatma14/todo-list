@@ -1,19 +1,18 @@
 import React from "react";
 
-import ToDo from "./Todo";
+import EditableToDo from "./EditableToDo";
 
 export default function TodoList(props) {
   return (
     <div>
-      <form>
-        {props.toDos.map((toDo, index) => (
-          <ToDo
-            key={index}
-            toDo={toDo}
-            handleCheckBoxChange={() => props.handleCheckBoxChange(index)}
-          />
-        ))}
-      </form>
+      {props.toDos.map((toDo, index) => (
+        <EditableToDo
+          key={index}
+          toDo={toDo}
+          handleCheckBoxChange={() => props.handleCheckBoxChange(index)}
+          handleNameChange={event => props.handleNameChange(event, index)}
+        />
+      ))}
     </div>
   );
 }

@@ -42,11 +42,19 @@ export default class AddElements extends Component {
   }
 
   handleCheckBoxChange(index) {
-    console.log("handleCheckBoxChange", index);
-    const toDo = this.state.toDoArray.slice();
-    toDo[index].isDone = !toDo[index].isDone;
+    const toDos = this.state.toDoArray.slice();
+    toDos[index].isDone = !toDos[index].isDone;
     this.setState({
-      toDoArray: toDo
+      toDoArray: toDos
+    });
+  }
+
+  handleNameChange(event, index) {
+    event.preventDefault();
+    const toDos = this.state.toDoArray.slice();
+    toDos[index].toDoPhrase = event.target.value;
+    this.setState({
+      toDoArray: toDos
     });
   }
 
@@ -98,6 +106,7 @@ export default class AddElements extends Component {
         <TodoList
           toDos={filteredTodo}
           handleCheckBoxChange={(...arg) => this.handleCheckBoxChange(...arg)}
+          handleNameChange={(...arg) => this.handleNameChange(...arg)}
         />
         <ActionBar
           toDoArray={this.state.toDoArray}
