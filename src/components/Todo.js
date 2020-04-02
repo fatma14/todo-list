@@ -1,30 +1,21 @@
 import React from "react";
 
-export default function ShowElement(props) {
+export default function Todo(props) {
   return (
     <div>
-      <form>
-        {props.toDoArray.map((toDo, index) => (
-          <div className="task-todo" key={index}>
-            <label
-              style={{
-                textDecoration: toDo.isDone && "line-through"
-              }}
-            >
-              {toDo.toDoPhrase}
-              <input
-                name="isDone"
-                type="checkbox"
-                checked={toDo.isDone}
-                onChange={event => {
-                  console.log(event);
-                  props.handleCheckBoxChange(index);
-                }}
-              />
-            </label>
-          </div>
-        ))}
-      </form>
+      <label
+        style={{
+          textDecoration: props.toDo.isDone && "line-through"
+        }}
+      >
+        {props.toDo.toDoPhrase}
+        <input
+          name="isDone"
+          type="checkbox"
+          checked={props.toDo.isDone}
+          onChange={props.handleCheckBoxChange}
+        />
+      </label>
     </div>
   );
 }
