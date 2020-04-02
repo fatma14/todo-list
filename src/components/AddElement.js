@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import CreateToDo from "./CreateToDo";
 import TodoList from "./TodoList";
+import ActionBar from "./ActionBar";
 
 const ACTIVE_STATE = "ACTIVE";
 const COMPLETED_STATE = "COMPLETED";
@@ -98,80 +99,13 @@ export default class AddElements extends Component {
           toDos={filteredTodo}
           handleCheckBoxChange={(...arg) => this.handleCheckBoxChange(...arg)}
         />
-        {/* <form>
-          {this.state.toDoArray
-            .filter(toDo => {
-              if (this.state.filterMode === ACTIVE_STATE) {
-                return toDo.isDone === false;
-              } else if (this.state.filterMode === COMPLETED_STATE) {
-                return toDo.isDone === true;
-              } else {
-                return true;
-              }
-            })
-            .map((toDo, index) => (
-              <div className="task-todo">
-                <label
-                  style={{
-                    textDecoration: toDo.isDone && "line-through"
-                  }}
-                  key={index}
-                >
-                  {toDo.toDoPhrase}
-                  <input
-                    name="isDone"
-                    type="checkbox"
-                    checked={toDo.isDone}
-                    onChange={event => {
-                      console.log(event);
-                      this.handleCheckBoxChange(index);
-                    }}
-                  />
-                </label>
-              </div>
-            ))}
-        </form> */}
-        <div>
-          {this.state.toDoArray.length > 0 && (
-            <div>
-              <div>
-                {
-                  this.state.toDoArray.filter(toDo => toDo.isDone === false)
-                    .length
-                }
-                items left
-              </div>
-              <button
-                onClick={() => {
-                  this.showActiveElements();
-                }}
-              >
-                Active
-              </button>
-              <button
-                onClick={() => {
-                  this.showCompletedElements();
-                }}
-              >
-                Completed
-              </button>
-              <button
-                onClick={() => {
-                  this.showAllElements();
-                }}
-              >
-                All
-              </button>
-              <button
-                onClick={() => {
-                  this.removeCompletedTasks();
-                }}
-              >
-                Clear completed tasks
-              </button>
-            </div>
-          )}
-        </div>
+        <ActionBar
+          toDoArray={this.state.toDoArray}
+          showActiveElements={(...arg) => this.showActiveElements(...arg)}
+          showCompletedElements={(...arg) => this.showCompletedElements(...arg)}
+          showAllElements={(...arg) => this.showAllElements(...arg)}
+          removeCompletedTasks={(...arg) => this.removeCompletedTasks(...arg)}
+        />
       </div>
     );
   }
