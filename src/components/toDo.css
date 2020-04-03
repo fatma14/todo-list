@@ -1,0 +1,20 @@
+.toDo {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.toDoElement {
+  width: 100%;
+}
+
+/* .checkBox {
+  width: 20%;
+} */
+
+.toDoText {
+  width: 80%;
+  overflow-wrap: break-word;
+}

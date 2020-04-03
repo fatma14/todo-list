@@ -1,25 +1,27 @@
 import React from "react";
 
+import "./createToDo.css";
+
 export default function CreateToDo(props) {
   return (
-    <div>
+    <div className="inputContainer">
       <form
+        id="formContainer"
         onSubmit={event => {
           props.handleSubmit(event);
         }}
       >
         <label>
-          What needs to be done?
           <input
+            id="createToDo"
             type="text"
             value={props.toDo.toDoPhrase}
             onChange={event => {
               props.handleChange(event);
             }}
-            placeholder="Add your todo here"
+            placeholder="What needs to be done?"
           />
         </label>
-        <input type="submit" value="Submit" />
       </form>
     </div>
   );

@@ -1,0 +1,36 @@
+.actionBar {
+  display: flex;
+  justify-content: space-between;
+  border-top: solid 2px gray;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  display: inline-block;
+  border-radius: 12px;
+  background-color: pink;
+  padding: 10px;
+  border: none;
+  font-size: 14px;
+  margin-top: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.counter {
+  border-radius: 12px;
+  background-color: white;
+  padding: 10px;
+  border: 2px solid pink;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.instruction {
+  margin-top: 50px;
+  align-self: center;
+  color: gray;
+}

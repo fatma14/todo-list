@@ -1,0 +1,6 @@
+#toDoElements {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-bottom: 30px;
+}

@@ -1,15 +1,20 @@
 import React from "react";
 
+import "./toDo.css";
+
 export default function Todo(props) {
   return (
-    <div>
+    <div className="toDoElement">
       <div
+        className="toDo"
         style={{
           textDecoration: props.toDo.isDone && "line-through"
         }}
       >
-        {props.toDo.toDoPhrase}
+        <div className="toDoText">{props.toDo.toDoPhrase}</div>
+
         <input
+          className="checkBox"
           name="isDone"
           type="checkbox"
           checked={props.toDo.isDone}
