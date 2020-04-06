@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./editToDo.css";
+
 export default function EditToDo(props) {
   return (
     <div>
@@ -9,6 +11,7 @@ export default function EditToDo(props) {
         }}
       >
         <input
+          className="editInput"
           type="text"
           value={props.toDo.toDoPhrase}
           onChange={event => {
